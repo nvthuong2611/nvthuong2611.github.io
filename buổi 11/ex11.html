@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Simple Calculator</title>
+<script language="javascript">
+function calculate() {
+    var f = document.f;
+    var n1 = f.n1.value;
+    var op = f.op.value;
+    var n2 = f.n2.value;
+
+    var regex = /^\d+$/;
+
+    if (!regex.test(n1) || !regex.test(n2)) {
+        alert("You must enter a valid number!");
+        return;
+    }
+
+    try {
+        var result = eval(n1 + op + n2);
+        f.result.value = result;
+    } catch (e) {
+        alert("Invalid expression!");
+    }
+}
+</script>
+</head>
+<body>
+<form name="f">
+    <table border="0" align="center">
+    <tr>
+        <td>First number:</td>
+        <td><input type="text" name="n1" size="5"></td>
+    </tr>
+    <tr>
+        <td>Operator (+, -, *, /, %):</td>
+        <td><input type="text" name="op" size="5"></td>
+    </tr>
+    <tr>
+        <td>Second number:</td>
+        <td><input type="text" name="n2" size="5"></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="button" value="Calculate" onclick="calculate()">
+        </td>
+    </tr>
+    <tr>
+        <td>Result:</td>
+        <td><input type="text" name="result" readonly></td>
+    </tr>
+    </table>
+</form>
+</body>
+</html>
