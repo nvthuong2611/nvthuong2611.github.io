@@ -2,54 +2,45 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Simple Calculator</title>
-<script language="javascript">
-function calculate() {
-    var f = document.f;
-    var n1 = f.n1.value;
-    var op = f.op.value;
-    var n2 = f.n2.value;
-
-    var regex = /^\d+$/;
-
-    if (!regex.test(n1) || !regex.test(n2)) {
-        alert("You must enter a valid number!");
-        return;
+<script>
+function display() {
+    var a = document.f.a.value;  
+    var iframe = document.getElementById("view_area");
+    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    iframeDoc.open();
+    iframeDoc.write("");
+    
+    if(a == "" || isNaN(a)) {
+        iframeDoc.write("<font color='red'>You must enter a number</font>");
+    } else {
+        iframeDoc.write("<b>Multiplication table of " + a + ":</b><br/>");
+        for(var i = 1; i <= 10; i++) {
+            iframeDoc.write(a + " x " + i + " = " + (a * i) + "<br/>");
+        }
     }
-
-    try {
-        var result = eval(n1 + op + n2);
-        f.result.value = result;
-    } catch (e) {
-        alert("Invalid expression!");
-    }
+    iframeDoc.close();  
 }
 </script>
 </head>
 <body>
 <form name="f">
     <table border="0" align="center">
-    <tr>
-        <td>First number:</td>
-        <td><input type="text" name="n1" size="5"></td>
-    </tr>
-    <tr>
-        <td>Operator (+, -, *, /, %):</td>
-        <td><input type="text" name="op" size="5"></td>
-    </tr>
-    <tr>
-        <td>Second number:</td>
-        <td><input type="text" name="n2" size="5"></td>
-    </tr>
-    <tr>
-        <td colspan="2" align="center">
-            <input type="button" value="Calculate" onclick="calculate()">
-        </td>
-    </tr>
-    <tr>
-        <td>Result:</td>
-        <td><input type="text" name="result" readonly></td>
-    </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <h2>Multiplication Table</h2>
+            </td>
+        </tr>
+        <tr> 
+            <td align="right">Which multiplication table that you want to display?</td>
+            <td><input name="a" size="5" type="number" onchange="display()" onkeyup="display()"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <iframe id="view_area" src="about:blank" width="300" height="280"></iframe>
+            </td>
+        </tr>
     </table>
 </form>
 </body>
