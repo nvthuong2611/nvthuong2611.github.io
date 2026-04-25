@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        color: #333;
+    }
+
+    .form-container {
+        width: 650px;
+        margin: 20px auto;
+    }
+
+    h2 {
+        color: #800000;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    hr {
+        border: 0;
+        border-top: 1px solid #a0a0a0;
+        margin: 15px 0;
+    }
+
+    .row {
+        display: flex;
+        margin-bottom: 10px;
+        align-items: center;
+    }
+
+    .row.align-top {
+        align-items: flex-start;
+    }
+
+    .label {
+        width: 130px;
+        color: #2e629b;
+        flex-shrink: 0;
+    }
+
+    .input-field {
+        width: 200px;
+        padding: 3px;
+        border: 1px solid #aaa;
+    }
+
+    .short-input {
+        width: 50px;
+        padding: 3px;
+        border: 1px solid #aaa;
+    }
+
+    .hint {
+        color: #2e629b;
+        margin-left: 5px;
+    }
+
+    .inline-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .inline-group .input-field {
+        width: 100px;
+    }
+
+    .inline-group .second-label {
+        color: #2e629b;
+        margin: 0 10px 0 20px;
+    }
+
+    .interests-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .interests-col {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-left: 30px;
+    }
+
+    .interests-col label {
+        color: #2e629b;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .submit-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-register {
+        background: linear-gradient(to bottom, #cc0000, #800000);
+        border: 1px solid #5a0000;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 8px 25px;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: inset 0px 1px 0px rgba(255,255,255,0.5), 0px 2px 2px rgba(0,0,0,0.3);
+    }
+
+    .btn-register:hover {
+        background: linear-gradient(to bottom, #e60000, #990000);
+    }
+</style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>REGISTRATION</h2>
+    
+    <hr>
+    
+    <div class="row">
+        <div class="label">Username:</div>
+        <input type="text" class="input-field" name="username">
+    </div>
+    <div class="row">
+        <div class="label">Password:</div>
+        <input type="password" class="input-field" name="password">
+    </div>
+    <div class="row align-top">
+        <div class="label">Re-type<br>Password:</div>
+        <input type="password" class="input-field" name="re_password">
+    </div>
+    
+    <hr>
+    
+    <div class="row">
+        <div class="label">Birthday:</div>
+        <div class="inline-group">
+            <select style="padding: 3px;">
+                <option>[select one]</option>
+                <option>January</option>
+                <option>February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select> , 
+            <input type="text" class="short-input" name="day"> , 
+            <input type="text" class="short-input" name="year" style="width: 70px;">
+            <span class="hint">(Month Day, Year)</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="label">Images:</div>
+        <input type="file" name="image">
+    </div>
+    
+    <hr>
+    
+    <div class="row">
+        <div class="label">First Name:</div>
+        <div class="inline-group">
+            <input type="text" class="input-field" name="first_name">
+            <div class="second-label">Last Name:</div>
+            <input type="text" class="input-field" name="last_name">
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="row align-top">
+        <div class="label" style="width: auto; min-width: 130px;">Interests (optional):</div>
+        <div class="interests-container">
+            <div class="interests-col">
+                <label><input type="checkbox" name="interest" value="Entertainment"> Entertainment</label>
+                <label><input type="checkbox" name="interest" value="Home"> Home & Family</label>
+                <label><input type="checkbox" name="interest" value="Health"> Health</label>
+                <label><input type="checkbox" name="interest" value="Music"> Music</label>
+            </div>
+            <div class="interests-col" style="margin-left: 50px;">
+                <label><input type="checkbox" name="interest" value="Business"> Business</label>
+                <label><input type="checkbox" name="interest" value="Tech"> Computers & Technology</label>
+                <label><input type="checkbox" name="interest" value="Finance"> Personal Finance</label>
+                <label><input type="checkbox" name="interest" value="SmallBusiness"> Small Business</label>
+            </div>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="submit-container">
+        <button type="submit" class="btn-register">REGISTER</button>
+    </div>
+</div>
+
+</body>
+</html>
